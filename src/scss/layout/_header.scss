@@ -7,12 +7,18 @@ body {
   font-family: $priFontFam;
 }
 
+button {
+  font-size: $priFontSize;
+  font-family: $priFontFam;
+}
+
 .header {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem 2.5rem;
   position: fixed;
+  top: 0;
   background: $white;
   width: 100%;
 
@@ -91,8 +97,4 @@ body {
   &__avatar {
     width: 2.5rem;
   }
-}
-
-.hidden {
-  display: none;
 }
