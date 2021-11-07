@@ -2,6 +2,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const path = require('path')
 const paths = require('./paths')
 
 module.exports = {
@@ -25,7 +26,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: paths.public,
+          from: path.resolve(__dirname, '../publics/images'),
           to: 'assets',
           globOptions: {
             ignore: ['*.DS_Store'],
@@ -38,7 +39,7 @@ module.exports = {
     // Generates an HTML file from a template
     // Generates deprecation warning: https://github.com/jantimon/html-webpack-plugin/issues/1501
     new HtmlWebpackPlugin({
-      favicon: `${paths.public}/images/favicon.png`,
+      favicon: `${paths.public}/favicon.png`,
       template: `${paths.src}/template.html`, // template file
       filename: 'index.html', // output file
     }),
@@ -54,12 +55,12 @@ module.exports = {
       // this rule is for inlining assests or resource from directly from html
       {
         test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
-        type: 'asset/resource',
+        // type: 'asset/resource',
       },
 
       // Fonts and SVGs: Inline files
       // this rule is for inlining assests or resource from directly from html
-      { test: /\.(woff(2)?|eot|ttf|otf|svg)$/, type: 'asset/inline' },
+      { test: /\.(woff(2)?|eot|ttf|otf|svg)$/ },
     ],
   },
 
@@ -70,7 +71,7 @@ module.exports = {
       '@src': paths.src,
       '@scss': `${paths.src}/scss`,
       '@public': paths.public,
-      '@fonts': `${paths.public}/fonts`,
+      '@fonts': `${paths.src}/fonts`,
       '@images': `${paths.public}/images`,
     },
   },
