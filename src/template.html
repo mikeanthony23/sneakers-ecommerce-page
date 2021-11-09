@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+</body>
+
+<header class="header">
+
+  <nav class="header__nav">
+
+    <button class="header__burger-menu"></button>
+
+    <div class="header__logo-wrapper">
+      <a href="#">
+        <img src="logo.svg" alt="logo">
+      </a>
+    </div>
+
+    <ul class="header__nav-list hidden">
+      <li class="header__nav-list-item">
+        <button class="header__nav-list-item-close-btn"></button>
+      </li>
+      <li class="header__nav-list-item header__nav-list-item-link"><a href="#">Collections</a></li>
+      <li class="header__nav-list-item header__nav-list-item-link"><a href="#">Men</a></li>
+      <li class="header__nav-list-item header__nav-list-item-link"><a href="#">Women</a></li>
+      <li class="header__nav-list-item header__nav-list-item-link"><a href="#">About</a></li>
+      <li class="header__nav-list-item header__nav-list-item-link"><a href="#">Contact</a></li>
+    </ul>
+
+    <div class="header__nav-list-overlay hidden"></div>
+
+    <div class="header__cart-avatar-wrapper">
+
+      <button class="header__cart-btn"></button>
+      <span class="header__cart-btn-qty">0</span>
+      <div class="header__avatar-wrapper">
+        <img class="header__avatar" src="image-avatar.png" alt="avatar image">
+      </div>
+
+    </div>
+
+  </nav>
+</header>
+
+<!--CART ELEMENTS EMPTY-->
+<!-- <section class="cart hidden">
+
+  <h6 class="cart__heading">Cart</h6>
+
+  <figure class="cart__figure">
+
+    <figcaption class="cart__caption">
+      <p class="cart__item-empty">Your cart is empty.</p>
+    </figcaption>
+
+  </figure>
+
+</section> -->
+
+<!--CART ELEMENTS NOT EMPTY-->
+<section class="cart hidden">
+
+  <h6 class="cart__heading">Cart</h6>
+
+  <figure class="cart__figure">
+
+    <div class="cart__figure-img-wrapper">
+      <img src="image-product-1-thumbnail.jpg" alt="">
+    </div>
+
+    <figcaption class="cart__caption">
+      <span class="cart__item-name">fall limited sneakers</span>
+      <div class="cart__calculation-wrapper">
+        <span class="cart__item-price">&dollar;25.00</span>
+        <span class="cart__item-operator">&times;</span>
+        <span class="cart__item-qty">3</span>
+        <span class="cart__item-total">&dollar;375.00</span>
+      </div>
+
+    </figcaption>
+
+    <div class="cart__remove-cart-wrapper">
+      <button class="cart__remove-item-btn"></button>
+    </div>
+
+  </figure>
+
+  <button class="cart__checkout-btn">Checkout</button>
+
+</section>
+
+
+
+<main class="main">
+  <figure class="figure">
+    <!-- MOBILE -->
+    <div class="figure__test-wrapper">
+      <div class="figure__slider-btn-wrapper">
+        <button class="figure__btn-slider-left"></button>
+        <button class="figure__btn-slider-right"></button>
+      </div>
+
+      <ul class="figure__image-list">
+        <li class="figure__image-list-item figure__image-list-item--1">
+          <img class="figure__image" src="image-product-1.jpg" alt="">
+        </li>
+        <li class="figure__image-list-item figure__image-list-item--2">
+          <img class="figure__image" src="image-product-2.jpg" alt="">
+        </li>
+        <li class="figure__image-list-item figure__image-list-item--3">
+          <img class="figure__image" src="image-product-3.jpg" alt="">
+        </li>
+        <li class="figure__image-list-item figure__image-list-item--4">
+          <img class="figure__image" src="image-product-4.jpg" alt="">
+        </li>
+      </ul>
+    </div>
+
+    <!-- DESKTOP -->
+    <!-- <ul class="figure__image-list">
+      <li class="figure__image-list-item"><img src="image-product-1.jpg" alt=""></li>
+      <li class="figure__image-list-item"><img src="image-product-2-thumbnail.jpg" alt=""></li>
+      <li class="figure__image-list-item"><img src="image-product-3-thumbnail.jpg" alt=""></li>
+      <li class="figure__image-list-item"><img src="image-product-4-thumbnail.jpg" alt=""></li>
+      <li class="figure__image-list-item"><img src="image-product-1-thumbnail.jpg" alt=""></li>
+    </ul> -->
+    <figcaption class="figure__caption">
+      <p class="figure__company-name">sneaker company</p>
+      <h2 class="figure__item-name">fall limited edition sneakers</h2>
+      <p class="figure__item-description">These low-profile sneakers are your perfect casual wear companion. Featuring
+        a
+        durable rubber outer sole,
+        they’ll withstand everything the weather can offer.
+      </p>
+      <div class="figure__pricing">
+        <span class="figure__price">&dollar;125.00</span>
+        <span class="figure__discount">50&#37;</span>
+        <span class="figure__discounted-price">&dollar;250.00</span>
+      </div>
+      <div class="figure__order-management">
+        <div class="figure__qty-management">
+          <button class="figure__plus-btn"></button>
+          <span class="figure__current-qty" data-qty="0">0</span>
+          <button class="figure__minus-btn"></button>
+        </div>
+        <button class="figure__add-to-cart-btn"><span>Add to cart</span></button>
+      </div>
+    </figcaption>
+  </figure>
+</main>
+
+</html>
