@@ -1,0 +1,223 @@
+@use '../abstracts/abstractsIndex' as *;
+
+.main {
+  margin-top: 6.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5.5rem;
+}
+
+.figure {
+  $marginLR: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  &__test-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__slider-btn-wrapper {
+    // background: gray;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+  }
+
+  &__image-list {
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    padding-top: 100%;
+  }
+
+  &__image-list-item {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // transition: transform 1s;
+  }
+
+  &__image {
+    height: 100%;
+  }
+
+  &__btn-slider-left,
+  &__btn-slider-right {
+    position: absolute;
+    width: 0.9rem;
+    height: 1rem;
+    z-index: 4;
+    padding: 2rem;
+    background: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+
+  &__btn-slider-left {
+    margin-left: $marginLR;
+    left: 0;
+    &::after {
+      content: url('@public/icon-previous.svg');
+      transform: translateY(0.2rem);
+    }
+  }
+  &__btn-slider-right {
+    margin-right: $marginLR;
+    right: 0;
+    &::after {
+      content: url('@public/icon-next.svg');
+      transform: translateY(0.2rem);
+    }
+  }
+
+  &__caption {
+    padding: 1.8rem;
+  }
+
+  &__company-name {
+    font-size: 1rem;
+    color: $orange;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 1.3rem;
+  }
+
+  &__item-name {
+    font-size: 2.6rem;
+    color: $veryVarkBlue;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+
+  &__item-description {
+    padding: 1.7rem 0;
+    line-height: 1.5;
+    font-weight: 400;
+    color: $darkGrayishBlue;
+  }
+
+  &__pricing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 2.5rem;
+    font-weight: 700;
+    padding: 1rem 0;
+  }
+
+  &__price,
+  &__discount {
+    justify-self: flex-end;
+    padding-right: 2rem;
+  }
+
+  &__discount {
+    color: $orange;
+    background: $paleOrange;
+    padding: 0.3rem 0.9rem;
+    font-size: 1.7rem;
+    border-radius: 0.5rem;
+  }
+
+  &__discounted-price {
+    margin-left: auto;
+    color: $darkGrayishBlue;
+    position: relative;
+    width: auto;
+    font-size: 1.9rem;
+    text-decoration: line-through 0.1rem;
+  }
+
+  &__order-management {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0;
+  }
+
+  &__qty-management {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $lightGrayishBlue;
+    width: 100%;
+    position: relative;
+    padding: 1.5rem 0;
+    margin-bottom: 1.5rem;
+
+    button {
+      position: absolute;
+      background-position: center;
+      width: 1.3rem;
+      height: 1.3rem;
+      padding: 3rem;
+    }
+  }
+
+  &__plus-btn {
+    background: url('@public/icon-plus.svg');
+    right: 0;
+  }
+
+  &__current-qty {
+    font-weight: 700;
+  }
+
+  &__minus-btn {
+    background: url('@public/icon-minus.svg');
+    left: 0;
+  }
+
+  &__add-to-cart-btn {
+    background: $orange;
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1rem 3rem -1rem $orange;
+
+    span {
+      padding-left: 4rem;
+      position: relative;
+      color: $white;
+      &::after {
+        content: url('@public/icon-cart-white.svg');
+        position: absolute;
+        left: calc(50% - 6rem);
+      }
+    }
+  }
+}
+
+.anim {
+  animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.transition {
+  transition: transform 400ms ease-out;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(-10rem);
+  }
+  100% {
+    transform: translateX(0rem);
+  }
+}

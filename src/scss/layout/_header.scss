@@ -10,6 +10,8 @@ body {
 button {
   font-size: $priFontSize;
   font-family: $priFontFam;
+  background-repeat: no-repeat !important;
+  border: none;
 }
 
 .header {
@@ -21,6 +23,7 @@ button {
   top: 0;
   background: $white;
   width: 100%;
+  z-index: 100;
 
   &__nav {
     display: flex;
@@ -39,32 +42,43 @@ button {
     padding: 0 1.5rem;
   }
 
-  &__list {
+  &__nav-list {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     position: fixed;
     left: 0;
     top: 0;
+    right: 12.5rem;
     height: 100vh;
     background: $white;
     font-weight: 700;
-    padding-right: 5rem;
+    z-index: 100;
   }
 
-  &__list-item {
+  &__nav-list-item {
     padding: 1.3rem 2.5rem;
     &-close-btn {
       padding-top: 0.5rem;
       padding-bottom: 3.5rem;
-      border: none;
       width: 2rem;
       height: 2rem;
-      background: url('@public/icon-close.svg') no-repeat;
+      background: url('@public/icon-close.svg');
     }
     a {
       color: $veryVarkBlue;
     }
+  }
+
+  &__nav-list-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: $black;
+    opacity: 0.75;
+    z-index: 1;
   }
 
   &__cart-avatar-wrapper {
@@ -80,8 +94,7 @@ button {
     position: relative;
     width: 2.5rem;
     height: 2.5rem;
-    border: none;
-    background: url('@public/icon-cart.svg');
+    background: url('@public/icon-cart-gray.svg');
 
     &-qty {
       display: inline-block;
