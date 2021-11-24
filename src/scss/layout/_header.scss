@@ -6,6 +6,9 @@ body {
   font-size: $priFontSize;
   font-family: $priFontFam;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 button {
@@ -24,7 +27,7 @@ button {
   top: 0;
   background: $white;
   width: 100%;
-  max-width: $maxWidth;
+  max-width: 93.5rem;
   z-index: 100;
   $paddingTB: 2.8rem;
 
@@ -32,8 +35,13 @@ button {
     padding: $paddingTB 4rem;
   }
 
+  @include mediaMin(900px) {
+    max-width: 110rem;
+  }
+
   @include mediaMin($maxWidth) {
-    padding: $paddingTB 16.5rem;
+    padding: $paddingTB 22rem;
+    max-width: $maxWidth;
   }
 
   &__nav {
