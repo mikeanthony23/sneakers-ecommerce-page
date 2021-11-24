@@ -8,7 +8,6 @@ const headerOverlayEl = document.querySelector('.header__nav-list-overlay')
 document.addEventListener('click', e => {
   const btn = e.target.closest('.header__nav-list-overlay')
   if (!btn) return
-  console.log(btn)
   btn.classList.add('hidden')
   document.querySelector('.header__nav-list').classList.add('hidden')
 })
@@ -55,7 +54,6 @@ document.addEventListener('click', e => {
   if (!btn) return
   counter += 1
   currentQuantity.textContent = counter
-  console.log((currentQuantity.dataset.qty = counter))
 })
 
 // minus
@@ -64,20 +62,22 @@ document.addEventListener('click', e => {
   if (!btn || counter === 0) return
   counter -= 1
   currentQuantity.textContent = counter
-  console.log((currentQuantity.dataset.qty = counter))
 })
 
 let currentPage = 0
 const allImg = [...document.querySelectorAll('.figure__image-list-item')]
 const maxSlide = allImg.length
 
-const addAnim = function (currentSlide, animateOnClick = false) {
+const addAnim = function (currentSlide, animateOnClick = true) {
   allImg.forEach(function (img, i) {
     img.style.transform = `translateX(${100 * (i - currentSlide)}%)`
-    if (animateOnClick === true) img.classList.add('transition')
+    if (!animateOnClick) return
+    if (img.classList.contains('figure__image-list-item-overlay')) return
+    img.classList.add('transition')
   })
 }
-addAnim(0)
+addAnim(0, false)
+
 const slider = () => {
   // slider prev
   document.addEventListener('click', e => {
@@ -85,8 +85,7 @@ const slider = () => {
     if (!btn) return
     currentPage -= 1
     if (currentPage === -1) currentPage = maxSlide - 1
-    console.log(currentPage)
-    addAnim(currentPage, true)
+    addAnim(currentPage)
   })
 
   // slider next
@@ -95,11 +94,26 @@ const slider = () => {
     if (!btn) return
     currentPage += 1
     if (currentPage === maxSlide) currentPage = 0
-    console.log(currentPage)
-    addAnim(currentPage, true)
+    addAnim(currentPage)
+  })
+
+  // thumbnail slider
+  document.addEventListener('click', e => {
+    const thumbnail = [...document.querySelectorAll('.figure__image-list-item-thumbnail')]
+    const imageThumbnail = [...document.querySelectorAll('.figure__image-thumbnail')]
+
+    const image = e.target.closest('.figure__image-thumbnail')
+    if (!image) return
+    const imageSlot = image.dataset.imagenumber
+
+    imageThumbnail.forEach(el => el.classList.remove('figure__image-thumbnail--active'))
+    thumbnail.forEach(el => el.classList.remove('figure__image-list-item-thumbnail--active'))
+
+    thumbnail[imageSlot].classList.add('figure__image-list-item-thumbnail--active')
+    imageThumbnail[imageSlot].classList.add('figure__image-thumbnail--active')
+
+    addAnim(imageSlot)
   })
 }
 
 slider()
-
-// window.addEventListener('load', slider)
